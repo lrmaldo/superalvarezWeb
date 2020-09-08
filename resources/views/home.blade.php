@@ -46,11 +46,11 @@
 
                     </div>
 
-                    <div class="card text-center " style="width: 100%">
+                    <div class="card " style="width: 100%">
                         <div class="card-header">
-                         
+                          <a href="{{route('sucursal.create')}}" class="btn btn-primary"> <i class="fas fa-store"></i> Crear sucursal</a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body text-center ">
                             <img class="img-fluid  " style="width: 25%;" src="img/portada.svg" alt="">
                             <br>
                             Administra tu sucursal
@@ -58,7 +58,34 @@
                       </div>
                       <div class="card">
                         <div class="card-body">
-                            <a href="" class="btn btn-primary"> <i class="fas fa-store"></i> Crear sucursal</a>
+                          
+                          <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>Sucursal</th>
+                                  <th>Email</th>
+                                  <th>Direccion</th>
+                                  <th>Accion</th>
+                                </tr>
+                              </thead>
+                              
+                              <tbody>
+                                @foreach ($sucursales as $item)
+                                    
+                                <tr>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->direccion}}</td>
+                                <td>
+                                  <a href="{{route('sucursal.edit',$item->id)}}" class="btn btn-info btn-sm"><i class="far fa-edit"></i></a>
+                                  <a data-toggle="modal" data-target="#modal_eliminar{{$item->id}}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a></td>
+                                </tr>
+                                  @include('sucursal.modal.modal_eliminar')
+                                @endforeach
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                 </div>

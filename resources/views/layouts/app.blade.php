@@ -21,9 +21,15 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn-SItPueeJksJgURjiGNpeHjhzCef9iM"></script>
+
+  {{-- css datatable --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="mapa.initMap()">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -37,7 +43,7 @@
           <img src="{{asset('img/logo_blanco.png')}}" alt="logo" width=40 srcset="">
             {{--   <i class="fas fa-laugh-wink"></i> --}}
           </div>
-          <div class="sidebar-brand-text mx-3">Admin App <sup>Súper Álvarez</sup></div>
+          <div class="sidebar-brand-text mx-3">Admin App <br> <small>Súper Álvarez</small> </div>
         </a>
   
         <!-- Divider -->
@@ -286,6 +292,13 @@
   
     <!-- Custom scripts for all pages-->
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+
+      <!-- Page level plugins -->
+  <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
   
   </body>
   

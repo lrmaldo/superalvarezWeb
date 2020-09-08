@@ -23,7 +23,7 @@ class SucursalController extends Controller
      */
     public function create()
     {
-        //
+        return view('sucursal.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class SucursalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
