@@ -226,6 +226,7 @@
   
             <!-- Page Heading -->
           {{--   <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> Aqui va el yeld --}}
+          @include('flash-message')
           @yield('content')
   
           </div>

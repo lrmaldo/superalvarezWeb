@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Role;
 
 class HomeController extends Controller
 {
@@ -24,9 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sucursales = User::with('roles')->where('name','user')->get();
-       
+        /* $sucursales = User::with(['roles'=>function($q){
+            $q->where('role_id','=','2');
+        }])->get(); */
+      /*   $sucursales =User::where() */
+       /*  $sucursales = User::where('roles.id','=',2)->get(); */
+        //$sucursales = User::with('roles')->except('');
+     /*    $sucursales = User::all()->roles()->where('name','user')-; */
+    $sucursales =  Role::where('name', 'user')->first()->users()->get();
         return view('home',compact('sucursales'));
+      /* return $sucursales; */
        
     }
 }

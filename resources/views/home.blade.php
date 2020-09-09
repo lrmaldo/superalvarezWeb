@@ -71,8 +71,9 @@
                               </thead>
                               
                               <tbody>
+                                
                                 @foreach ($sucursales as $item)
-                                    
+                                  
                                 <tr>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
