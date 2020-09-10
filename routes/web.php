@@ -20,3 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('sucursal','SucursalController');
+
+/* rutas del banner principal */
+
+Route::resource('bannerp','bannerprincipalController');

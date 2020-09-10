@@ -133,6 +133,7 @@
                         lat: 17.8282252,
                         lng: -95.8210509
                     },
+                    icon:"../img/logo_fondo.png",
 
                     draggable: true
                 });

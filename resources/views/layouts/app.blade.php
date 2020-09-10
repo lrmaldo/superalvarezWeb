@@ -27,6 +27,17 @@
   {{-- css datatable --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+
+  {{-- scripts --}}
+
+   <!-- Bootstrap core JavaScript-->
+   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+ 
+   <!-- Core plugin JavaScript-->
+   <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+   
 </head>
 
 <body id="page-top" onload="mapa.initMap()">
@@ -284,12 +295,7 @@
       </div>
     </div>
   
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+   
   
     <!-- Custom scripts for all pages-->
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>

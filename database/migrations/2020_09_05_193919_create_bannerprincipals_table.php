@@ -16,7 +16,7 @@ class CreateBannerprincipalsTable extends Migration
         Schema::create('bannerprincipals', function (Blueprint $table) {
             $table->increments('id');
             $table->text('url_imagen');
-            $table->integer('id_sucursal');
+            
             $table->timestamps();
         });
     }

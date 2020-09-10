@@ -12,6 +12,10 @@ class SucursalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         return redirect('home');
@@ -51,7 +55,7 @@ class SucursalController extends Controller
             $sucursal->email =$request->correo;
             $sucursal->password = bcrypt($request->contrasenia);
             $sucursal->descripcion = $request->descripcion;
-            $sucursal->url_imagen = $request->root().'/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/";
+            $sucursal->url_imagen = $request->root().'/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/".$nombre_imagen;
             $sucursal->id_telegram = 1;
             $sucursal->direccion = $request->direccion;
             $sucursal->lat = $request->lat;

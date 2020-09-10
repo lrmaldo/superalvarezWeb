@@ -13,6 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('auth');
@@ -33,6 +34,7 @@ class HomeController extends Controller
         //$sucursales = User::with('roles')->except('');
      /*    $sucursales = User::all()->roles()->where('name','user')-; */
     $sucursales =  Role::where('name', 'user')->first()->users()->get();
+   // $total_sucursales =   $sucursales =  Role::where('name', 'user')->first()->users()->get()->count();
         return view('home',compact('sucursales'));
       /* return $sucursales; */
        
