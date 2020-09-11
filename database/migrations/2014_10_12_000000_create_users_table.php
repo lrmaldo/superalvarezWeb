@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->text('url_imagen')->nullable();
             $table->integer('id_telegram')->nullable();
             $table->text('direccion')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->string('lat')->nullable();
             $table->string('lon')->nullable();
             $table->rememberToken();

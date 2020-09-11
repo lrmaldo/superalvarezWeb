@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <h1 class="mt-4">Crear Tienda</h1>
+    <h1 class="mt-4">Crear Sucursal</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
         <li class="breadcrumb-item active">Crear</li>
@@ -62,6 +62,27 @@
             <div class="col-md-8">
                 <input type="text" id="direccion" class="form-control" name="direccion" value=""
                     placeholder="Dirección de la sucursal" >
+            </div>
+        </div>
+        {{-- telefono --}}
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <label class="col-md-4 control-label">Teléfono:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="number" min="0" minlength="10" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="telefono" class="form-control" name="telefono" value=""
+                    placeholder="Escribe el teléfono de la sucursal"  >
+            </div>
+        </div>
+
+        {{-- whatsapp --}}
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <label class="col-md-4 control-label">Whatsapp:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="number"  min="0"  id="whatsapp" class="form-control" name="whatsapp" value=""
+                    placeholder="Dirección de la sucursal" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
             </div>
         </div>
 

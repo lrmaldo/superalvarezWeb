@@ -50,7 +50,7 @@ class bannerprincipalController extends Controller
             $image->move($destinoPath,$nombre_imagen);
             bannerprincipal::create([
                 'url_imagen' => $request->root().'/imagenes/banner_principal/'.$nombre_imagen,
-                 'id_sucursal' => 1
+                
             ]);
             
             return redirect('bannerp')->with('success','Banner guadada correctamente');

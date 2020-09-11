@@ -21,6 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('sucursal','SucursalController');
 
+/* rutas de perfil */
+Route::get('/perfil', array('as' => 'perfil', 'uses' => 'SucursalController@perfil'));
+Route::put('/perfil/update/{id}',array('as'=>'perfil.update','uses'=>'SucursalController@perfilUpdate'));
+
 /* rutas del banner principal */
 
 Route::resource('bannerp','bannerprincipalController');

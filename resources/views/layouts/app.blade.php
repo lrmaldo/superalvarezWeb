@@ -79,13 +79,13 @@
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+            <span>Utilidades</span>
           </a>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Custom Components:</h6>
-              <a class="collapse-item" href="buttons.html">Buttons</a>
-              <a class="collapse-item" href="cards.html">Cards</a>
+              <h6 class="collapse-header"></h6>
+              <a class="collapse-item" href="{{route('bannerp.index')}}">Banners</a>
+              {{-- <a class="collapse-item" href="cards.html">Cards</a> --}}
             </div>
           </div>
         </li>
@@ -201,22 +201,27 @@
                     @if(!Auth::guest())
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                     @endif
-                  <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                    @if(Auth::user()->foto_url==null)
+                    <img src="{{ asset('img/logo.jpg')}} " name="aboutme"  border="0" class="img-responsive img-profile rounded-circle"></a>
+                    @else
+                    <img src="{{ Auth::user()->foto_url }}" name="aboutme"   border="0" class="img-responsive img-profile rounded-circle"></a>
+                    @endif
+                  {{-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> --}}
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{route('perfil')}}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
+                    Perfil
                   </a>
-                  <a class="dropdown-item" href="#">
+                 {{--  <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Settings
                   </a>
                   <a class="dropdown-item" href="#">
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                     Activity Log
-                  </a>
+                  </a> --}}
                   <div class="dropdown-divider"></div>
                   {{-- longout laravel --}}
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
