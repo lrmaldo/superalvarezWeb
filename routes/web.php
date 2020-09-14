@@ -28,3 +28,9 @@ Route::put('/perfil/update/{id}',array('as'=>'perfil.update','uses'=>'SucursalCo
 /* rutas del banner principal */
 
 Route::resource('bannerp','bannerprincipalController');
+
+/* rutas de productos */
+Route::resource('productos','ProductosController');
+
+/* rutas de categorias */
+Route::resource('categorias','CategoriasController');

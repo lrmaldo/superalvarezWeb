@@ -1,2 +1,6 @@
 primario #ef4b42
 secundario # #fff112
+
+
+============================
+falta poner el campo de activo en la tabla de user

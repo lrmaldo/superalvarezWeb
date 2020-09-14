@@ -18,7 +18,9 @@ class CreateCategoriasTable extends Migration
             $table->string('titulo')->nullable();
             $table->string('color')->nullable();
             $table->string('url_imagen')->nullable();
-            $table->integer('id_producto')->nullable();
+         
+            $table->integer('id_sucursal')->unsigned()->nullable();
+            $table->foreign('id_sucursal')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
