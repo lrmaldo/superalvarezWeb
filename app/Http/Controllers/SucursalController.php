@@ -228,7 +228,12 @@ class SucursalController extends Controller
         if ($request->hasFile('url_imagen')) {
 
             /* checar si existe una ruta de imagen en la bd */
-            $checar_img =str_replace($request->root(),'',$sucursal->url_imagen); 
+            if($sucursal->url_imagen == null){
+                $checar_img ='null';
+            }else{
+
+                $checar_img =str_replace($request->root(),'',$sucursal->url_imagen); 
+            }
             if(file_exists(".".$checar_img)){
                 /* proseguir en eliminarlo  */
                 unlink(".".$checar_img);
@@ -258,6 +263,7 @@ class SucursalController extends Controller
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
                 $sucursal->save();
+                return redirect('home')->with('info','Datos actualidos actualizada');
 
 
             }else{
@@ -288,7 +294,7 @@ class SucursalController extends Controller
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
                 $sucursal->save();
-
+                return redirect('home')->with('info','Datos actualidos actualizada');
 
 
             }
@@ -311,8 +317,8 @@ class SucursalController extends Controller
             $sucursal->telefono = $request->telefono;
             $sucursal->whatsapp= $request->whatsapp;
             $sucursal->save();
-
+            return redirect('home')->with('info','Datos actualidos actualizada');
         }
-        return redirect('home')->with('info','Datos actualidos actualizada');
+       
     }
 }

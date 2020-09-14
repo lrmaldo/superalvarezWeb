@@ -95,10 +95,10 @@
 </ol>
 
 <center>
-    @if(Auth::user()->foto_url==null)
+    @if(Auth::user()->url_imagen==null)
     <img src="{{ asset('img/logo.jpg')}} " name="aboutme"  border="0" class="img-responsive img-profile rounded-circle" width="200"></a>
     @else
-    <img src="{{ Auth::user()->foto_url }}" name="aboutme"   border="0" class="img-responsive img-profile rounded-circle" width="200"></a>
+    <img src="{{ Auth::user()->url_imagen }}" name="aboutme"   border="0" class="img-responsive img-profile rounded-circle" width="200"></a>
     @endif
         <h3 class="media-heading">{{ Auth::user()->name }} </h3>
 
@@ -215,7 +215,7 @@
             <div id="mapa" style="width: 450px; height: 350px;"> </div>
           </div>
         <input type="hidden" id ="lat" class="form-control" name="lat" value="{{Auth::user()->lat}}" placeholder="Como se llama la tienda" required>
-            <input type="hidden" id ="long" class="form-control" name="long" value="{{Auth::user()->lon" placeholder="Como se llama la tienda" required>
+            <input type="hidden" id ="long" class="form-control" name="long" value="{{Auth::user()->lon}}" placeholder="Como se llama la tienda" required>
           </div>
       </div>
  

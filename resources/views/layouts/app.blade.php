@@ -34,6 +34,7 @@
    <!-- Bootstrap core JavaScript-->
    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/caret/1.0.0/jquery.caret.min.js"></script>
  
    <!-- Core plugin JavaScript-->
    <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
@@ -201,10 +202,10 @@
                     @if(!Auth::guest())
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                     @endif
-                    @if(Auth::user()->foto_url==null)
+                    @if(Auth::user()->url_imagen==null)
                     <img src="{{ asset('img/logo.jpg')}} " name="aboutme"  border="0" class="img-responsive img-profile rounded-circle"></a>
                     @else
-                    <img src="{{ Auth::user()->foto_url }}" name="aboutme"   border="0" class="img-responsive img-profile rounded-circle"></a>
+                    <img src="{{ Auth::user()->url_imagen }}" name="aboutme"   border="0" class="img-responsive img-profile rounded-circle"></a>
                     @endif
                   {{-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> --}}
                 </a>
