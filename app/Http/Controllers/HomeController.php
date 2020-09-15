@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Role;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,19 +25,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        /* $sucursales = User::with(['roles'=>function($q){
-            $q->where('role_id','=','2');
-        }])->get(); */
-      /*   $sucursales =User::where() */
-       /*  $sucursales = User::where('roles.id','=',2)->get(); */
-        //$sucursales = User::with('roles')->except('');
-     /*    $sucursales = User::all()->roles()->where('name','user')-; */
-    $sucursales =  Role::where('name', 'user')->first()->users()->get();
-   // $total_sucursales =   $sucursales =  Role::where('name', 'user')->first()->users()->get()->count();
-        return view('home',compact('sucursales'));
-      /* return $sucursales; */
+       
+        $request->user()->authorizeRoles(['user', 'admin']);
+        if(Auth::user()->hasRole('admin')){ //busca el roll de usuario si es admin o user
+         return redirect('sucursal');
+        }else{
+            return redirect('productos');
+        }
+
+       
+     
        
     }
 }

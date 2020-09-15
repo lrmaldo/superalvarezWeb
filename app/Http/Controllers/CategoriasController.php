@@ -20,7 +20,8 @@ class CategoriasController extends Controller
     public function index()
     {
         $categorias = categoria::where('id_sucursal',Auth::user()->id)->get();
-        return view('categorias.index',compact('categorias'));
+        $total_categorias = $categorias->count();
+        return view('categorias.index',compact('categorias','total_categorias'));
     }
 
     /**

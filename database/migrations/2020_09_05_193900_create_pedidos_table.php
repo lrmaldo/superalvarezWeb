@@ -18,7 +18,7 @@ class CreatePedidosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->text('datos_cliente')->nullable();
             $table->float('total',8,2)->nullable();
-            $table->integer('id_sucursal')->nullable();
+           // $table->integer('id_sucursal')->nullable();
             $table->timestamps();
         });
     }

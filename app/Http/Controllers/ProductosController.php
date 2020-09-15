@@ -22,7 +22,8 @@ class ProductosController extends Controller
     {
         $productos = producto::where('id_sucursal',Auth::user()->id)->get();
         $categorias = categoria::where('id_sucursal',Auth::user()->id)->get();
-        return view('productos.index',compact('productos','categorias'));
+        $total_productos = $productos->count();
+        return view('productos.index',compact('productos','categorias','total_productos'));
     }
 
     /**

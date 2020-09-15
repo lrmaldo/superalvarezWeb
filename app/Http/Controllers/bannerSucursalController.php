@@ -20,8 +20,10 @@ class bannerSucursalController extends Controller
     }
     public function index()
     {
+
         $banners = bannerSucursal::where('id_sucursal',Auth::user()->id)->get();
-       return view('banners.index',compact('banners'));
+        $total_banners = $banners->count();
+       return view('banners.index',compact('banners','total_banners'));
     }
 
     /**

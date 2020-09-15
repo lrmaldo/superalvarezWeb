@@ -63,9 +63,16 @@
   
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
+          @if(Auth::user()->hasRole('admin'))
           <a class="nav-link" href="{{route('home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
+            @else 
+            <a class="nav-link" href="{{route('productos.index')}}">
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span></a>
+
+            @endif
         </li>
   
         <!-- Divider -->
@@ -73,7 +80,7 @@
   
         <!-- Heading -->
         <div class="sidebar-heading">
-          Interface
+          
         </div>
   
         <!-- Nav Item - Pages Collapse Menu -->
@@ -85,7 +92,16 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header"></h6>
+              {{-- urls segun de los  roles --}}
+              @if(Auth::user()->hasRole('admin'))
               <a class="collapse-item" href="{{route('bannerp.index')}}">Banners</a>
+              @else 
+              <a class="collapse-item" href="{{route('banners.index')}}">Banners</a>
+              <a class="collapse-item" href="{{route('categorias.index')}}">Categorias</a>
+              <a class="collapse-item" href="{{route('categorias.index')}}">Pedidos</a>
+              <a class="collapse-item" href="{{route('productos.index')}}">Productos</a>
+
+              @endif
               {{-- <a class="collapse-item" href="cards.html">Cards</a> --}}
             </div>
           </div>

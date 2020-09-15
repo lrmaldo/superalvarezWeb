@@ -127,7 +127,7 @@
         </div>
         <div class="col-md-8">
         <input type="text" id="nombre" class="form-control" name="nombre" value="{{Auth::user()->name}}"
-                placeholder="Como se llama la sucursal" required autofocus>
+                placeholder="Como se llama la sucursal" required disabled>
         </div>
     </div>
 
@@ -139,7 +139,7 @@
         </div>
         <div class="col-md-8">
         <input type="email" id="correo" class="form-control" name="correo" value="{{Auth::user()->email}}"
-                placeholder="Email para iniciar sesion en esta plataforma" required>
+                placeholder="Email para iniciar sesion en esta plataforma" required autofocus>
         </div>
     </div>
     {{-- contraseña  --}}

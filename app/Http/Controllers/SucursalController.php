@@ -19,7 +19,9 @@ class SucursalController extends Controller
     }
     public function index()
     {
-        return redirect('home');
+        $sucursales =  Role::where('name', 'user')->first()->users()->get();
+   // $total_sucursales =   $sucursales =  Role::where('name', 'user')->first()->users()->get()->count();
+        return view('home',compact('sucursales'));
     }
 
     /**
