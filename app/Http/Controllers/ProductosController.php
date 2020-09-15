@@ -14,6 +14,10 @@ class ProductosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $productos = producto::where('id_sucursal',Auth::user()->id)->get();
@@ -193,11 +197,11 @@ class ProductosController extends Controller
         if(file_exists(".".$checar_img)){/* busca si hay un archivo en la carpeta */
         unlink(".".$checar_img);/* destruye el archivo */
         producto::destroy($id);/* elimina los datos del producto */
-        return redirect('productos')->with('success',"se elimino el producto correctamente ");
+        return redirect('productos')->with('success',"se elimino el producto correctamente");
         }
         else{
             producto::destroy($id);
-             return redirect('productos')->with('success',"se elimino el producto correctamente ");
+             return redirect('productos')->with('success',"se elimino el producto correctamente");
         }
     }
 }

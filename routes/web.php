@@ -34,3 +34,8 @@ Route::resource('productos','ProductosController');
 
 /* rutas de categorias */
 Route::resource('categorias','CategoriasController');
+
+
+/* rutas de banners de sucursal */
+
+Route::resource('banners','bannerSucursalController');
