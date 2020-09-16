@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\pedidos;
+use App\producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidosController extends Controller
 {
@@ -13,7 +16,9 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        
+        $pedidos = pedidos::where('id_sucursal',Auth::user()->id)->get();
+        $total_pedidos =$pedidos->count();
+        return view('pedidos.index',compact('pedidos','total_pedidos'));
     }
 
     /**

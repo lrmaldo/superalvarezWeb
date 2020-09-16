@@ -108,7 +108,7 @@
         </li>
   
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Utilities</span>
@@ -122,7 +122,7 @@
               <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
           </div>
-        </li>
+        </li> --}}
   
         <!-- Divider -->
         <hr class="sidebar-divider">
