@@ -14,7 +14,7 @@ class CreateUserbotTelegramsTable extends Migration
     public function up()
     {
         Schema::create('userbot_telegrams', function (Blueprint $table) {
-            $table->integer('id')->nullable();
+            $table->integer('id')->unsigned()->nullable();
             $table->string('nombre')->nullable();
             $table->timestamps();
         });

@@ -54,6 +54,27 @@
             </div>
         </div>
 
+        {{-- id telegram --}}
+        <div class="form-group ">
+            <div class="input-group-prepend">
+            <label class="col-md-4 control-label" for="exampleFormControlSelect1">Selecciona el id del telegram de la sucursal</label>.
+            </div>
+            <div class="col-md-8">
+                <select class="form-control md-8" id="idtelegram" name="idtelegram" >
+                    <option  >Seleccionar</option>
+                 {{--    <option disabled  hidden>Seleccionar</option> --}}
+                    @foreach (App\userbotTelegram::get() as $item)
+                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->nombre }} </option>
+
+                    @endforeach
+
+                </select>
+                <small>Si no aparece ningún Id pidele que mande un hola al bot  <a
+                        href="{{ route('telegram.index') }}">checa aquí la lista</a> </small>
+
+            </div>
+        </div>
+
         {{-- direccion --}}
         <div class="form-group">
             <div class="input-group-prepend">
@@ -82,7 +103,7 @@
             </div>
             <div class="col-md-8">
                 <input type="number"  min="0"  id="whatsapp" class="form-control" name="whatsapp" value=""
-                    placeholder="Dirección de la sucursal" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
+                    placeholder="número telefonico, puedes dejar vacio este campo" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
             </div>
         </div>
 

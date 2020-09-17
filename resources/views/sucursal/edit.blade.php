@@ -85,7 +85,33 @@
             placeholder="puedes poner una breve descripción de la sucursal o puedes dejar este campo vacío "  >{{$sucursal->descripcion}}</textarea>
             </div>
         </div>
+        
         {{-- id telegram --}}
+        <div class="form-group ">
+            <div class="input-group-prepend">
+            <label class="col-md-4 control-label" for="exampleFormControlSelect1">Selecciona el id del telegram de la sucursal</label>.
+            </div>
+            <div class="col-md-8">
+                <select class="form-control md-8" id="idtelegram" name="idtelegram" required>
+                    <option  value="null">Seleccionar</option>
+                 {{--    <option disabled  hidden>Seleccionar</option> --}}
+                    @foreach (App\userbotTelegram::get() as $telegram)
+                        @php
+                            $selected ='';
+                            if($telegram->id == (int)$sucursal->id_telegram){
+                                $selected='selected';
+                            }
+                        @endphp
+                        <option value="{{ $telegram->id }}" {{$selected}}>{{ $telegram->id }} - {{ $telegram->nombre }} </option>
+
+                    @endforeach
+
+                </select>
+                <small>Si no aparece ningún Id pidele que mande un hola al bot  <a
+                        href="{{ route('telegram.index') }}">checa aquí la lista</a> </small>
+
+            </div>
+        </div>
 
     
         {{-- ubicacion --}}

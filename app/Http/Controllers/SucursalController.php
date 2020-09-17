@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Role;
+use Illuminate\Support\Facades\Validator;
 class SucursalController extends Controller
 {
     /**
@@ -44,7 +45,22 @@ class SucursalController extends Controller
     {   
         $role_user = Role::where('name', 'user')->first();
          $sucursal = new User();
+
+         $msj = [
+            'required' => 'el :attribute ya existe',
+            'unique' =>'el correo ya existe'
+         ];
+         $validador = Validator::make($request->all(), [
+            
+            'email' => 'required|unique:users',
+          
+         ],$msj);
+        if($validador->fails()){
+            return redirect('sucursal/create')->withErrors($validador)
+            ->withInput();;
+        }
         if ($request->hasFile('url_imagen')) {
+
             $nombre_carpeta =str_replace(' ', '', $sucursal->name);
 
             $image = $request->file('url_imagen');
@@ -59,11 +75,14 @@ class SucursalController extends Controller
             $sucursal->password = bcrypt($request->contrasenia);
             $sucursal->descripcion = $request->descripcion;
             $sucursal->url_imagen = $request->root().'/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/".$nombre_imagen;
-            $sucursal->id_telegram = 1;
+           
             $sucursal->direccion = $request->direccion;
             $sucursal->lat = $request->lat;
             $sucursal->long = $request->long;
             $sucursal->telefono = $request->telefono;
+            if($request->idtelegram != null){
+                $sucursal->id_telegram = $request->idtelegram;
+            }
             $sucursal->whatsapp= $request->whatsapp;
             $sucursal->save();
             $sucursal->roles()->attach($role_user);
@@ -73,11 +92,14 @@ class SucursalController extends Controller
             $sucursal->password = bcrypt($request->contrasenia);
             $sucursal->descripcion = $request->descripcion;
             
-            $sucursal->id_telegram = 1;
+            
             $sucursal->direccion = $request->direccion;
             $sucursal->lat = $request->lat;
             $sucursal->lon = $request->long;
             $sucursal->telefono = $request->telefono;
+            if($request->idtelegram !== null){
+                $sucursal->id_telegram = $request->idtelegram;
+            }
             $sucursal->whatsapp= $request->whatsapp;
             $sucursal->save();
             $sucursal->roles()->attach($role_user);
@@ -145,12 +167,17 @@ class SucursalController extends Controller
                 }
                 $sucursal->descripcion = $request->descripcion;
                 $sucursal->url_imagen = $request->root().'/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/".$nombre_imagen;
-                $sucursal->id_telegram = 1;
+                
                 $sucursal->direccion = $request->direccion;
                 $sucursal->lat = $request->lat;
                 $sucursal->lon = $request->long;
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
+                if($request->idtelegram !== null){
+                    $sucursal->id_telegram = $request->idtelegram;
+                }else{
+                    $sucursal->id_telegram =null;
+                }
                 $sucursal->save();
 
 
@@ -175,12 +202,17 @@ class SucursalController extends Controller
                 }
                 $sucursal->descripcion = $request->descripcion;
                 $sucursal->url_imagen = $request->root().'/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/".$nombre_imagen;
-                $sucursal->id_telegram = 1;
+                
                 $sucursal->direccion = $request->direccion;
                 $sucursal->lat = $request->lat;
                 $sucursal->lon = $request->long;
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
+                if($request->idtelegram !== null){
+                    $sucursal->id_telegram = $request->idtelegram;
+                }else{
+                    $sucursal->id_telegram =null;
+                }
                 $sucursal->save();
 
 
@@ -198,12 +230,17 @@ class SucursalController extends Controller
                 $sucursal->password = bcrypt($request->contrasenia);
             }
             $sucursal->descripcion = $request->descripcion;
-            $sucursal->id_telegram = 1;
+            
             $sucursal->direccion = $request->direccion;
             $sucursal->lat = $request->lat;
             $sucursal->lon = $request->long;
             $sucursal->telefono = $request->telefono;
             $sucursal->whatsapp= $request->whatsapp;
+            if($request->idtelegram !== null){
+                $sucursal->id_telegram = $request->idtelegram;
+            }else{
+                $sucursal->id_telegram =null;
+            }
             $sucursal->save();
 
         }

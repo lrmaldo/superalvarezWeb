@@ -42,3 +42,6 @@ Route::resource('banners','bannerSucursalController');
 
 /*  rutas de pedidos de sucursal */
 Route::resource('pedidos','PedidosController');
+
+/* rutas de telegram */
+Route::resource('telegram','TelegramController');
