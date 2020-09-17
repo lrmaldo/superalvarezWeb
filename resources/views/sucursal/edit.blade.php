@@ -21,6 +21,18 @@
                                                               </button-->
             </div>
         </div>
+         {{-- activar --}}
+         <div class="form-check">
+            <div class="input-group-prepend">
+                <label class="col-md-4 control-label">Activar sucursal:</label>
+            </div>
+            <div class="custom-control custom-checkbox ">
+              <input type="checkbox" name="activar" id="activar" value="1"  class="form-check-input" {{ ($sucursal->activo == 1 ? 'checked' : '') }}>
+              
+              <label class="form-check-label" for="customCheck">  <h3><strong>Activar</strong></h3> </label>
+
+            </div>
+          </div>
         {{-- nombre --}}
         <div class="form-group">
             <div class="input-group-prepend">

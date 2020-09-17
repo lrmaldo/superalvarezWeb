@@ -69,6 +69,7 @@
                                   <th>Sucursal</th>
                                   <th>Email</th>
                                   <th>Direccion</th>
+                                  <th>Estado</th>
                                   <th>Accion</th>
                                 </tr>
                               </thead>
@@ -81,6 +82,11 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->direccion}}</td>
+                                <td style="text-align: center">@if ($item->activo == 1)
+                                  <span class="badge badge-pill badge-success">Activo</span>
+                                @else
+                                <span class="badge badge-pill badge-danger">No activo</span>
+                                @endif</td>
                                 <td>
                                   <a href="{{route('sucursal.edit',$item->id)}}" class="btn btn-info btn-sm"><i class="far fa-edit"></i></a>
                                   <a data-toggle="modal" data-target="#modal_eliminar{{$item->id}}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a></td>

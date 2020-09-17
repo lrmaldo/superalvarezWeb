@@ -16,7 +16,7 @@ class CreateBannerSucursalsTable extends Migration
         Schema::create('banner_sucursals', function (Blueprint $table) {
             $table->increments('id');
             $table->text('url_imagen')->nullable();
-           // $table->integer('id_sucursal')->nullable();
+            //$table->integer('id_sucursal')->nullable();
             $table->timestamps();
         });
     }

@@ -123,7 +123,7 @@ class ProductosController extends Controller
                 $categoria = categoria::where('id',$request['categoria'.$id])->first();
                 $nom_categoria = str_replace(' ','',$categoria->titulo); /* nombre de la carpeta de la categoria */
                 $nombre_carpeta =str_replace(' ', '', Auth::user()->name);
-
+                
                 $image = $request->file('file_image'.$id);
                 $nombre_imagen = "categoria".time().".".$image->getClientOriginalExtension();
                 /* destino de la imagen */

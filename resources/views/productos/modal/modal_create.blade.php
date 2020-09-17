@@ -19,7 +19,7 @@
                    
                     <div class="form-group">
                         <div class="input-group-prepend">
-                            <label class="col-md-6 control-label">Título de la categoria:*</label>
+                            <label class="col-md-6 control-label">Título del producto:*</label>
                         </div>
                         <div class="col-md-12">
                             <input type="text" id="titulo" class="form-control" name="titulo" value=""

@@ -59,6 +59,16 @@ class SucursalController extends Controller
             return redirect('sucursal/create')->withErrors($validador)
             ->withInput();;
         }
+
+        /* activar o desactivar */
+
+        if(!$request->input('activar')){
+            $activo = 0;
+        }
+        else{
+            $activo = 1;
+        }
+
         if ($request->hasFile('url_imagen')) {
 
             $nombre_carpeta =str_replace(' ', '', $sucursal->name);
@@ -75,7 +85,7 @@ class SucursalController extends Controller
             $sucursal->password = bcrypt($request->contrasenia);
             $sucursal->descripcion = $request->descripcion;
             $sucursal->url_imagen = $request->root().'/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/".$nombre_imagen;
-           
+            $sucursal->activo = $activo;//activar o desactivar
             $sucursal->direccion = $request->direccion;
             $sucursal->lat = $request->lat;
             $sucursal->long = $request->long;
@@ -141,6 +151,18 @@ class SucursalController extends Controller
     {
 
         $sucursal = User::find($id);
+
+        /* activar o desactivar */
+        
+        /* activar o desactivar */
+
+        if(!$request->input('activar')){
+            $activo = 0;
+        }
+        else{
+            $activo = 1;
+        }
+
         if ($request->hasFile('url_imagen')) {
 
             /* checar si existe una ruta de imagen en la bd */
@@ -167,7 +189,7 @@ class SucursalController extends Controller
                 }
                 $sucursal->descripcion = $request->descripcion;
                 $sucursal->url_imagen = $request->root().'/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/".$nombre_imagen;
-                
+                $sucursal->activo = $activo;/* activar o desactivar */
                 $sucursal->direccion = $request->direccion;
                 $sucursal->lat = $request->lat;
                 $sucursal->lon = $request->long;
@@ -193,7 +215,7 @@ class SucursalController extends Controller
                 $destinoPath = public_path('/imagenes/sucursal/'.$nombre_carpeta."/perfil"."/");
                 /* guardar imagen en la ruta */
                 $image->move($destinoPath,$nombre_imagen);
-                
+                $sucursal->activo = $activo;/* activar o desactivar */
                 $sucursal->name= $request->nombre;
                 $sucursal->email =$request->correo;
                 if($request->contrasenia){
@@ -236,6 +258,7 @@ class SucursalController extends Controller
             $sucursal->lon = $request->long;
             $sucursal->telefono = $request->telefono;
             $sucursal->whatsapp= $request->whatsapp;
+            $sucursal->activo = $activo;/* activar o desactivar */
             if($request->idtelegram !== null){
                 $sucursal->id_telegram = $request->idtelegram;
             }else{

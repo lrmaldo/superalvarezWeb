@@ -45,3 +45,6 @@ Route::resource('pedidos','PedidosController');
 
 /* rutas de telegram */
 Route::resource('telegram','TelegramController');
+
+/* clientes app */
+Route::resource('clientes','ClientesController');
