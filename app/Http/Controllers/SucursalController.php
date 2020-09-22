@@ -167,9 +167,14 @@ class SucursalController extends Controller
 
             /* checar si existe una ruta de imagen en la bd */
             $checar_img =str_replace($request->root(),'',$sucursal->url_imagen); 
-            if(file_exists(".".$checar_img)){
+            if($checar_img== null){
+                $file_existe =null;
+            }else{
+                $file_existe = ".".$checar_img;
+            }
+            if(file_exists($file_existe)){
                 /* proseguir en eliminarlo  */
-                unlink(".".$checar_img);
+                unlink($file_existe);
                 /* archivo eliminado */
                 $nombre_carpeta =str_replace(' ', '', $sucursal->name);
 
