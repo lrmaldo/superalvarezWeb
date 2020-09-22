@@ -365,7 +365,7 @@ class SucursalController extends Controller
         }else{
             /* sino hay archivo en el resquest solo guarda las variables */
 
-            $sucursal->name= $request->nombre;
+           
             $sucursal->email =$request->correo;
             if($request->contrasenia){
 

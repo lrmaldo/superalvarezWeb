@@ -127,7 +127,7 @@
         </div>
         <div class="col-md-8">
         <input type="text" id="nombre" class="form-control" name="nombre" value="{{Auth::user()->name}}"
-                placeholder="Como se llama la sucursal" required disabled>
+                placeholder="Como se llama la sucursal" disabled>
         </div>
     </div>
 
