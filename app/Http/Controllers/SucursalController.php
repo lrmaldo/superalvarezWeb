@@ -46,7 +46,7 @@ class SucursalController extends Controller
         $role_user = Role::where('name', 'user')->first();
          $sucursal = new User();
 
-         $msj = [
+        /*  $msj = [
             'required' => 'el :attribute ya existe',
             'unique' =>'el correo ya existe'
          ];
@@ -58,7 +58,7 @@ class SucursalController extends Controller
         if($validador->fails()){
             return redirect('sucursal/create')->withErrors($validador)
             ->withInput();;
-        }
+        } */
 
         /* activar o desactivar */
 
@@ -310,8 +310,7 @@ class SucursalController extends Controller
                 /* guardar imagen en la ruta */
                 $image->move($destinoPath,$nombre_imagen);
 
-                /* guardar las variables */
-                $sucursal->name= $request->nombre;
+                
                 $sucursal->email =$request->correo;
                 if($request->contrasenia){
 
@@ -342,7 +341,7 @@ class SucursalController extends Controller
                 /* guardar imagen en la ruta */
                 $image->move($destinoPath,$nombre_imagen);
                 
-                $sucursal->name= $request->nombre;
+               
                 $sucursal->email =$request->correo;
                 if($request->contrasenia){
 
