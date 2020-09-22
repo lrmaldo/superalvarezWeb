@@ -52,7 +52,7 @@
                           </a>
                       </div>
                       <div class="col-xl-3 col-md-6 mb-4">
-                          <a href="{{ route('categorias.index') }}">
+                          <a href="{{ route('pedidos.index') }}">
 
                               <div class="card border-left-success shadow h-100 py-2">
                                   <div class="card-body">
@@ -126,8 +126,8 @@
                                 <td> <div class="text-white p-3  d-inline-block my-3" style="background-color: {{$item->color}};"></div></td>
                                 <td > <img src="{{$item->url_imagen}}" alt="" width="120" height="120" class="img-responsive center" style=" margin: 0 auto;"></td>
                                 <td>
-                                  <a data-toggle="modal" data-target="#ModalEdit{{$item->id}}"  class="btn btn-info btn-sm"><i class="far fa-edit"></i></a>
-                                  <a data-toggle="modal" data-target="#modal_eliminar{{$item->id}}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a></td>
+                                  <a data-toggle="modal" data-target="#ModalEdit{{$item->id}}"  class="btn btn-info btn-sm text-white"><i class="far fa-edit"></i></a>
+                                  <a data-toggle="modal" data-target="#modal_eliminar{{$item->id}}" class="btn btn-danger btn-sm text-white"><i class="far fa-trash-alt"></i></a></td>
                                 </tr>
                                   @include('categorias.modal.modal_edit')
                                   @include('categorias.modal.modal_eliminar')

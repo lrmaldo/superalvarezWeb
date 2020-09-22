@@ -19,7 +19,7 @@
         <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
       
       </head>
-      <body style="background-color: #ef4b42;">
+      <body style="background-color: #fff001;">
           
       
       {{-- <body class="bg-gradient-warning"> --}}
