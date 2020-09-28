@@ -81,12 +81,12 @@ class ApiController extends Controller
              'banners' =>$banners
 
          );
-         array_push($datos, $array);
+         //array_push($datos, $array);
      
         
 
 
-         $collection = collect($datos);
+         $collection = collect($array);
         $page=1;
         $perpage = 10;
         $response = new LengthAwarePaginator($collection->forPage($page,$perpage),$collection->count(),$perpage,$page);
