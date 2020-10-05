@@ -125,7 +125,7 @@ class ProductosController extends Controller
                 $nombre_carpeta =str_replace(' ', '', Auth::user()->name);
                 
                 $image = $request->file('file_image'.$id);
-                $nombre_imagen = "categoria".time().".".$image->getClientOriginalExtension();
+                $nombre_imagen = "producto".time().".".$image->getClientOriginalExtension();
                 /* destino de la imagen */
                 $destinoPath = public_path('/imagenes/sucursal/'.$nombre_carpeta."/productos"."/".$nom_categoria."/");
                 /* guardar imagen en la ruta */
@@ -147,7 +147,7 @@ class ProductosController extends Controller
                 $nombre_carpeta =str_replace(' ', '', Auth::user()->name);
 
                 $image = $request->file('file_image'.$id);
-                $nombre_imagen = "categoria".time().".".$image->getClientOriginalExtension();
+                $nombre_imagen = "producto".time().".".$image->getClientOriginalExtension();
                 /* destino de la imagen */
                 $destinoPath = public_path('/imagenes/sucursal/'.$nombre_carpeta."/productos"."/".$nom_categoria."/");
                 /* guardar imagen en la ruta */

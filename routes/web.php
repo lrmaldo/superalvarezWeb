@@ -48,3 +48,38 @@ Route::resource('telegram','TelegramController');
 
 /* clientes app */
 Route::resource('clientes','ClientesController');
+
+
+
+Route::get('clear_cache', function () {
+
+    \Artisan::call('cache:clear');
+
+    dd("Cache is cleared");
+
+});
+
+
+Route::get('config_cache', function () {
+
+    \Artisan::call('config:cache');
+
+    dd("Config and Cache is cleared");
+
+});
+
+Route::get('clear_route', function () {
+
+    \Artisan::call('route:clear');
+
+    dd("Route is cleared");
+
+});
+
+Route::get('view_cache', function () {
+
+    \Artisan::call('view:clear');
+
+    dd("View is cleared");
+
+});

@@ -143,4 +143,10 @@ class ApiController extends Controller
 
          return $producto;
     }
+
+    public function productos_sucursal($id){
+         $productos = producto::where('id_sucursal',$id)->get();
+        
+         return $productos; 
+    }
 }
