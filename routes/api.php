@@ -22,3 +22,6 @@ Route::GET('sucursales','ApiController@index');
 Route::GET('sucursal/{id}','ApiController@show');
 Route::GET('sucursal/producto/{id}','ApiController@producto');
 Route::GET('sucursal/productosSucursal/{id}','ApiController@productos_sucursal');
+
+
+Route::POST('sucursal/pedido','ApiController@store_pedido');

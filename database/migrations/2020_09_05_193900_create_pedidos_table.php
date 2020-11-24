@@ -15,10 +15,12 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('descripcion')->nullable();
+            $table->text('carrito')->nullable();
             $table->text('datos_cliente')->nullable();
             $table->float('total',8,2)->nullable();
-           // $table->integer('id_sucursal')->nullable();
+            $table->string('fecha_entrega')->nullable();
+            $table->string('comentario',250)->nullable();
+            /* $table->integer('id_sucursal')->nullable(); */
             $table->timestamps();
         });
     }
