@@ -159,7 +159,7 @@ class ApiController extends Controller
 
         /* obtener los datos de la sucursal*/
         $sucursal =  User::where('id', '=', $id_sucursal)->first();
-        $id_telegram = $sucursal->id_sucursal;/* obtener el id de telegram de la sucursal a enviar */
+        $id_telegram = $sucursal->id_telegram;/* obtener el id de telegram de la sucursal a enviar */
 
         $carrito = $request->carrito; // obtener  el  objeto del carrito del cliente;
 
@@ -190,18 +190,24 @@ class ApiController extends Controller
         $texto .= "\n";/* salto de linea */
 
         /* request  parametros */
-        $request_params = [
+        $data = [
             'chat_id' => $id_telegram,
             'text' => $texto,
         ];
 
         /* url de telegram chat  conexion*/
-        $token = 'bot1267434596:AAEN1WSsLPKYfyEK9BBj7IV7jWIQWK3hG-M';
-        $request_url = 'https://api.telegram.org' . $token . '/sendMessage?' . http_build_query($request_params);
+        $apiToken = "bot1267434596:AAEN1WSsLPKYfyEK9BBj7IV7jWIQWK3hG-M";
+        //$request_url = 'https://api.telegram.org/bot1267434596:AAEN1WSsLPKYfyEK9BBj7IV7jWIQWK3hG-M/sendMessage?'.http_build_query($request_params);
+        //$request_url ='https://api.telegram.org/bot1123063757:AAHeUJXZh1BbVtziyGSQoLoTl4osTZS0RhU/sendMessage?'.http_build_query($request_params);
+
+        //file_get_contents($request_url);
+
+
+        $response = file_get_contents("https://api.telegram.org/$apiToken/sendMessage?" . http_build_query($data) );
 
         /* enviar a telegram */
         try {
-            file_get_contents($request_url);
+            $response;
         } catch (\Throwable $th) {
             return response()->json(['code' => 500, 'message' => 'Ocurrio un problema', 'status' => 'danger'], 500);
         }
@@ -222,5 +228,12 @@ class ApiController extends Controller
         /* finalizacion de  guarda datos en la base datos */
 
         return response()->json(['code' => 200, 'message' => 'Datos guardados exitosamente...', 'status' => 'success'], 200);
+    }
+
+    public function guardarDatos(Request $request){
+
+        /* guardar los datos de los usuarios */
+        return 0;
+        
     }
 }
