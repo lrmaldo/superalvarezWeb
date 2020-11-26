@@ -56,9 +56,10 @@ class ApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function data_sucursal($id)
     {
-        //
+        $sucursal = User::where('id', $id)->where('activo', 1)->get();
+        return $sucursal;
     }
 
     /**
@@ -164,7 +165,7 @@ class ApiController extends Controller
         $carrito = $request->carrito; // obtener  el  objeto del carrito del cliente;
 
         $texto = "\n Hola tienes un nuevo pedido \n \n";
-        $texto .= "\n *** Datos del cliente****";
+        $texto .= "\n *** Datos del cliente****\n" ;
         $texto .= "Nombre: " . $arrayDatosCliente['nombre'] . "\n";
         $texto .= "Teléfono: " . $arrayDatosCliente['telefono'] . "\n";
         $texto .= "Dirección: " . $arrayDatosCliente['direccion'] . "\n";
