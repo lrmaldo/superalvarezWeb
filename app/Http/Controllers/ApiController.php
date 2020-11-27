@@ -58,7 +58,7 @@ class ApiController extends Controller
      */
     public function data_sucursal($id)
     {
-        $sucursal = User::where('id', $id)->where('activo', 1)->get();
+        $sucursal = User::where('id', $id)->where('activo', 1)->first();
         return $sucursal;
     }
 
