@@ -328,7 +328,7 @@
 
   <!-- Page level custom scripts -->
   <script src="{{asset('js/demo/datatables-demo.js')}}"></script>
-  
+  <script src="{{asset('js/demo/datatables-pedidos.js')}}"></script>
   </body>
   
   </html>

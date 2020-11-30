@@ -1,7 +1,7 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-  $('#dataTable').DataTable({
-    "order": [0,'desc'],
+  $('#dataTablePedidos').DataTable({
+     "order": [0,'desc'],
     "language": {
        
     "sLengthMenu":     "Mostrar _MENU_ registros",
