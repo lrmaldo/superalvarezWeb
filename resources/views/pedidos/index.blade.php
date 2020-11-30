@@ -103,7 +103,7 @@
                                 <tr>
                                   <th>Id pedido</th>
                                   <th>Concepto</th>
-                                  <th>Tipo de servicio</th>
+                                  {{-- <th>Tipo de servicio</th> --}}
                                   <th>Total</th>
                                   <th>Fecha de pedido</th>
                                   <th>Acciones</th>
@@ -118,12 +118,12 @@
                                   <td>{{$registro->id}}</td>
                                       <?php 
                                       //conversion de concepto convertir el string en array
-                                      $array =  json_decode($registro->descripcion);
+                                      $array =  json_decode($registro->carrito);
                                         $pedido = (object) $array; 
                                         $texto="";  
                                         foreach ( $pedido as $r ) {
-                                          $total= $r->food->precio * $r->quantity;
-                                          $texto.=$r->food->titulo.": $".$r->food->precio." * ".$r->quantity." = $".$total ."<br>";
+                                          $total= $r->producto->precio * $r->cantidad;
+                                          $texto.=$r->producto->titulo.": $".$r->producto->precio." * ".$r->cantidad." = $".$total ."<br>";
                                          
                                      // $s.= $r["food"]["titulo"].": $".$r["food"]["precio"]." * ". $r["quantity"]." = $".$total." \n";
                                           
@@ -133,11 +133,14 @@
                                       ?>
                                     <td><?php echo substr($texto,0,15)."..." ?></td>
                                     
-                                    <td>{{$registro->tipo}}</td><!--es el username me dio hueva cambiar el atributo en la db xD -->
-                                    <td>${{$registro->total}}</td>
-                                    <th> <?php echo date_format($registro->created_at, 'd/m/Y H:i:s'); ?>  </th>
+                                   {{--  <td>{{$registro->tipo}}</td> --}}<!--es el username me dio hueva cambiar el atributo en la db xD -->
+                                    <td>${{number_format($registro->total,2)  }}</td>
                                     <th>
-                                   {{--  <a href="{{ url('/ventas/' . $registro->id) }}" class="btn btn-info btn-xs"> Ver en detalle </a> --}}
+                                       <?php /* echo date_format($registro->created_at, 'd/m/Y H:i:s'); */ ?> 
+                                       {{$registro->fecha_entrega}}
+                                     </th>
+                                    <th>
+                                    <a href="{{ url('/pedidos/' . $registro->id) }}" class="btn btn-info btn-xs"> Ver en detalle </a>
                                                                       
                                     </th>
                                    

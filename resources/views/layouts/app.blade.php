@@ -98,7 +98,7 @@
               @else 
               <a class="collapse-item" href="{{route('banners.index')}}">Banners</a>
               <a class="collapse-item" href="{{route('categorias.index')}}">Categorias</a>
-              <a class="collapse-item" href="{{route('categorias.index')}}">Pedidos</a>
+              <a class="collapse-item" href="{{route('pedidos.index')}}">Pedidos</a>
               <a class="collapse-item" href="{{route('productos.index')}}">Productos</a>
 
               @endif

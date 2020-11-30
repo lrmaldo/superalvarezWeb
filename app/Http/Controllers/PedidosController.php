@@ -50,7 +50,8 @@ class PedidosController extends Controller
      */
     public function show($id)
     {
-        //
+       $pedido = pedidos::find($id);
+        return view('pedidos.show',compact('pedido'));
     }
 
     /**
