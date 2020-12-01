@@ -230,10 +230,16 @@ class ApiController extends Controller
 
 
         /* enviar pdf a api telegram */
+
+        $nombre_archivo = 'pedidoNum-'.$pedido->id.'.pdf';
+         \PDF::loadView('pedidos.pdf.pedido-pdf', compact('pedido'))
+         ->save(storage_path('app/public/') . $nombre_archivo);
+
+
         $data = [
             'chat_id' => $id_telegram,
             'text' => 'aqui esta el pedido en un pdf',
-            'document' =>$request->root().'/pedidospdf/'.$pedido->id,
+            'document' =>$request->root().'/get_pdf/'.$nombre_archivo,
         ];
 
         /* url de telegram chat  conexion*/
