@@ -51,6 +51,8 @@ Route::resource('clientes','ClientesController');
 
 
 
+Route::get('pedidospdf/{id}','PedidosController@generate_pdf');
+
 Route::get('clear_cache', function () {
 
     \Artisan::call('cache:clear');

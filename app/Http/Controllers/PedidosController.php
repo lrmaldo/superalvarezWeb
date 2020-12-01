@@ -14,6 +14,12 @@ class PedidosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $pedidos = pedidos::where('id_sucursal',Auth::user()->id)->get();
@@ -86,5 +92,20 @@ class PedidosController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function generate_pdf($id){
+
+        $pedido = pedidos::find($id);
+        //$date = date('Y-m-d');
+        //$invoice = "2222";
+        $view =  \View::make('pedidos.pdf.pedido-pdf', compact('pedido'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        $nombre_archivo = 'pedidoNum-'.$pedido->id.'.pdf';
+       /*  \PDF::loadView('pedidos.pdf.pedido-pdf', compact('pedido'))
+        ->save(storage_path('app/public/') . $nombre_archivo); */
+        return $pdf->stream($nombre_archivo);
     }
 }

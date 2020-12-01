@@ -37,7 +37,7 @@
                         <tr>
                             <td>{{ $con->cantidad }}</td>
                             <td>{{ $con->producto->titulo }}</td>
-                            <td>${{ $con->producto->precio }}</td>
+                            <td>${{ number_format($con->producto->precio,2) }}</td>
                             <td>${{ number_format($con->producto->precio * $con->cantidad, 2) }}</td>
                         </tr>
                     @endforeach

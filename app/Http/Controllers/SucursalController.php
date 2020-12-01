@@ -316,7 +316,7 @@ class SucursalController extends Controller
                 $image->move($destinoPath,$nombre_imagen);
 
                 
-                $sucursal->email =$request->correo;
+                //$sucursal->email =$request->correo;
                 if($request->contrasenia){
 
                     $sucursal->password = bcrypt($request->contrasenia);

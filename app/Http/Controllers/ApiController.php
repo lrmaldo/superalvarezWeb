@@ -228,6 +228,26 @@ class ApiController extends Controller
         $pedido->save();
         /* finalizacion de  guarda datos en la base datos */
 
+
+        /* enviar pdf a api telegram */
+        $data = [
+            'chat_id' => $id_telegram,
+            'text' => 'aqui esta el pedido en un pdf',
+            'document' =>$request->root().'/pedidospdf/'.$pedido->id,
+        ];
+
+        /* url de telegram chat  conexion*/
+        $apiToken = "bot1267434596:AAEN1WSsLPKYfyEK9BBj7IV7jWIQWK3hG-M";
+        //$request_url = 'https://api.telegram.org/bot1267434596:AAEN1WSsLPKYfyEK9BBj7IV7jWIQWK3hG-M/sendMessage?'.http_build_query($request_params);
+        //$request_url ='https://api.telegram.org/bot1123063757:AAHeUJXZh1BbVtziyGSQoLoTl4osTZS0RhU/sendMessage?'.http_build_query($request_params);
+
+        //file_get_contents($request_url);
+
+
+        $response = file_get_contents("https://api.telegram.org/$apiToken/sendDocument?" . http_build_query($data) );
+
+
+
         return response()->json(['code' => 200, 'message' => 'Datos guardados exitosamente...', 'status' => 'success'], 200);
     }
 
