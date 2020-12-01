@@ -239,7 +239,7 @@ class ApiController extends Controller
         $data = [
             'chat_id' => $id_telegram,
             'text' => 'aqui esta el pedido en un pdf',
-            'document' =>$request->root().'/get_pdf/'.$nombre_archivo,
+            'document' => $request->root().'/get_pdf/'.$nombre_archivo,
         ];
 
         /* url de telegram chat  conexion*/
