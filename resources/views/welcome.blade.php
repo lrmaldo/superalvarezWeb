@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
       
         <!-- Custom styles for this template-->
-        <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+       {{--  <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet"> --}}
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
       
 <link rel="stylesheet" href="styles/css/linearicons.css">
@@ -78,39 +78,13 @@
             }
         </style> --}}
     </head>
-    <body class="bg-gradient-warning" >
-       {{--  <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div> --}}
-        <!-- start banner Area -->
+    <body style="background-color: #fff001;" >
+       
 	<section class="home-banner-area">
 		<div class="container">
 			<div class="row fullscreen d-flex align-items-center justify-content-between">
 				<div class="home-banner-content col-lg-6 col-md-6 fadeInLeft ">
-					<h1 style="color:white;">
+					<h1 style="color:black;">
 						Super Alvarez <br> App
 					</h1>
 					{{-- <p style="color:white; ">Todo lo que necesitas en una App </p> --}}
@@ -140,26 +114,26 @@
 					</div>
 				</div>
 				<div class="banner-img col-lg-4 col-md-6 fadeInRight">
-					<img class="img-fluid" src="img/phone.png" alt="">
+					<img class="img-fluid" src="img/iphone1.png" alt="">
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- End banner Area -->
 	<!-- Start Footer Area -->
-{{-- 	<footer >
-	<p class="footer-text m-0 col-lg-6 col-md-12" style="color:white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	<footer >
+	<p class="footer-text m-0 col-lg-6 col-md-12" style="color:black"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> Hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://sattlink.com" target="_blank">Sattlink®</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 	
-    </footer> --}}
+    </footer>
     
     <script src="styles/js/vendor/jquery-2.2.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	 crossorigin="anonymous"></script>
 	<script src="styles/js/tilt.jquery.min.js"></script>
 	<script src="styles/js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+
 	<script src="styles/js/easing.min.js"></script>
 	<script src="styles/js/hoverIntent.js"></script>
 	<script src="styles/js/superfish.min.js"></script>
