@@ -10,7 +10,7 @@ use App\producto;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-
+use PhpParser\Node\Stmt\TryCatch;
 
 class ApiController extends Controller
 {
@@ -231,7 +231,7 @@ class ApiController extends Controller
 
         /* enviar pdf a api telegram */
 
-        $nombre_archivo = 'pedidoNum-'.$pedido->id.'.pdf';
+       /*  $nombre_archivo = 'pedidoNum-'.$pedido->id.'.pdf';
          \PDF::loadView('pedidos.pdf.pedido-pdf', compact('pedido'))
          ->save(storage_path('app/public/') . $nombre_archivo);
 
@@ -242,15 +242,16 @@ class ApiController extends Controller
             'document' => $request->root().'/get_pdf/'.$nombre_archivo,
         ];
 
-        /* url de telegram chat  conexion*/
+       
         $apiToken = "bot1267434596:AAEN1WSsLPKYfyEK9BBj7IV7jWIQWK3hG-M";
-        //$request_url = 'https://api.telegram.org/bot1267434596:AAEN1WSsLPKYfyEK9BBj7IV7jWIQWK3hG-M/sendMessage?'.http_build_query($request_params);
-        //$request_url ='https://api.telegram.org/bot1123063757:AAHeUJXZh1BbVtziyGSQoLoTl4osTZS0RhU/sendMessage?'.http_build_query($request_params);
+       
+        $response = json_decode(file_get_contents("https://api.telegram.org/$apiToken/sendDocument?" . http_build_query($data) ) );
+        
+        try{
 
-        //file_get_contents($request_url);
-
-
-        $response = file_get_contents("https://api.telegram.org/$apiToken/sendDocument?" . http_build_query($data) );
+        }catch (Exception $e){
+            $response = 0;
+        } */
 
 
 
