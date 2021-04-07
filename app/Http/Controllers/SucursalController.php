@@ -94,6 +94,7 @@ class SucursalController extends Controller
                 $sucursal->id_telegram = $request->idtelegram;
             }
             $sucursal->whatsapp= $request->whatsapp;
+            $sucursal->mayoreo = $request->mayorista;
             $sucursal->save();
             $sucursal->roles()->attach($role_user);
         }else{
@@ -111,6 +112,7 @@ class SucursalController extends Controller
                 $sucursal->id_telegram = $request->idtelegram;
             }
             $sucursal->whatsapp= $request->whatsapp;
+            $sucursal->mayoreo = $request->mayorista;
             $sucursal->save();
             $sucursal->roles()->attach($role_user);
         }
@@ -156,12 +158,8 @@ class SucursalController extends Controller
         
         /* activar o desactivar */
 
-        if(!$request->input('activar')){
-            $activo = 0;
-        }
-        else{
-            $activo = 1;
-        }
+        $activo = !$request->input('activar')?0:1 ;
+        
 
         if ($request->hasFile('url_imagen')) {
 
@@ -200,6 +198,7 @@ class SucursalController extends Controller
                 $sucursal->lon = $request->long;
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
+                $sucursal->mayoreo = $request->mayorista;
                 if($request->idtelegram !== null){
                     $sucursal->id_telegram = $request->idtelegram;
                 }else{
@@ -235,6 +234,7 @@ class SucursalController extends Controller
                 $sucursal->lon = $request->long;
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
+                $sucursal->mayoreo = $request->mayorista;
                 if($request->idtelegram !== null){
                     $sucursal->id_telegram = $request->idtelegram;
                 }else{
@@ -262,6 +262,7 @@ class SucursalController extends Controller
             $sucursal->lat = $request->lat;
             $sucursal->lon = $request->long;
             $sucursal->telefono = $request->telefono;
+            $sucursal->mayoreo = $request->mayorista;
             $sucursal->whatsapp= $request->whatsapp;
             $sucursal->activo = $activo;/* activar o desactivar */
             if($request->idtelegram !== null){

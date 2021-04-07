@@ -33,6 +33,23 @@
 
             </div>
           </div>
+          {{-- mayorista --}}
+          <div class="form-group">
+            
+            <label for='mayorista'class="col-md-4 control-label">¿Esta sucursal tiene ventas por mayoreo?:</label>
+        
+     
+            <div class="col-md-4">
+                
+                <select class="form-control " id="mayorista" name="mayorista">
+                  <option value="1" {{$sucursal->mayoreo==1 ? 'selected': null}}>Si</option>
+                  <option value="0" {{$sucursal->mayoreo==0 ? 'selected': null}} >No</option>
+                </select>
+            </div>
+          
+
+        
+      </div>
         {{-- nombre --}}
         <div class="form-group">
             <div class="input-group-prepend">
@@ -75,6 +92,27 @@
             <div class="col-md-8">
             <input type="text" id="direccion" class="form-control" name="direccion" value="{{$sucursal->direccion}}"
                     placeholder="Dirección de la sucursal" >
+            </div>
+        </div>
+         {{-- telefono --}}
+         <div class="form-group">
+            <div class="input-group-prepend">
+                <label class="col-md-4 control-label">Teléfono:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="number" min="0" minlength="10" value="{{$sucursal->telefono}}" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="telefono" class="form-control" name="telefono" value=""
+                    placeholder="Escribe el teléfono de la sucursal"  >
+            </div>
+        </div>
+
+        {{-- whatsapp --}}
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <label class="col-md-4 control-label">Whatsapp:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="number"  min="0"  id="whatsapp" class="form-control" value="{{$sucursal->whatsapp}}" name="whatsapp" value=""
+                    placeholder="número telefonico, puedes dejar vacio este campo" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
             </div>
         </div>
         {{-- imagen --}}

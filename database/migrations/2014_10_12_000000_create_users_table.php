@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('activo')->default('0');
+            $table->string('activo')->default('1');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('whatsapp')->nullable();
             $table->string('lat')->nullable();
             $table->string('lon')->nullable();
+           
             $table->rememberToken();
             $table->timestamps();
         });

@@ -87,13 +87,13 @@
                           {{--  --}}
                     </div>
 
-                    <div class="card " style="width: 100%">
+                    {{-- <div class="card " style="width: 100%">
                         <div class="card-header">
                           <a data-toggle="modal" data-target="#ModalCreate" class="btn btn-primary text-white"> <i class="fas fa-cube  text-white"></i> Crear Producto</a>
                         
                         </div>
                        
-                      </div>
+                      </div> --}}
                       <div class="card">
                         <div class="card-body">
                           

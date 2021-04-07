@@ -32,6 +32,24 @@
 
             </div>
           </div>
+
+            {{-- mayorista --}}
+         <div class="form-group">
+            
+                <label for='mayorista'class="col-md-4 control-label">¿Esta sucursal tiene ventas por mayoreo?:</label>
+            
+         
+                <div class="col-md-4">
+                    
+                    <select class="form-control " id="mayorista" name="mayorista">
+                      <option value="1">Si</option>
+                      <option value="0" >No</option>
+                    </select>
+                </div>
+              
+
+            
+          </div>
         {{-- nombre --}}
         <div class="form-group">
             <div class="input-group-prepend">
