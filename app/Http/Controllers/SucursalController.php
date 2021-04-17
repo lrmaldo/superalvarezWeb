@@ -95,6 +95,7 @@ class SucursalController extends Controller
             }
             $sucursal->whatsapp= $request->whatsapp;
             $sucursal->mayoreo = $request->mayorista;
+            $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
             $sucursal->save();
             $sucursal->roles()->attach($role_user);
         }else{
@@ -112,6 +113,7 @@ class SucursalController extends Controller
                 $sucursal->id_telegram = $request->idtelegram;
             }
             $sucursal->whatsapp= $request->whatsapp;
+            $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
             $sucursal->mayoreo = $request->mayorista;
             $sucursal->save();
             $sucursal->roles()->attach($role_user);
@@ -199,6 +201,7 @@ class SucursalController extends Controller
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
                 $sucursal->mayoreo = $request->mayorista;
+                $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
                 if($request->idtelegram !== null){
                     $sucursal->id_telegram = $request->idtelegram;
                 }else{
@@ -235,6 +238,7 @@ class SucursalController extends Controller
                 $sucursal->telefono = $request->telefono;
                 $sucursal->whatsapp= $request->whatsapp;
                 $sucursal->mayoreo = $request->mayorista;
+                $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
                 if($request->idtelegram !== null){
                     $sucursal->id_telegram = $request->idtelegram;
                 }else{
@@ -264,6 +268,7 @@ class SucursalController extends Controller
             $sucursal->telefono = $request->telefono;
             $sucursal->mayoreo = $request->mayorista;
             $sucursal->whatsapp= $request->whatsapp;
+            $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
             $sucursal->activo = $activo;/* activar o desactivar */
             if($request->idtelegram !== null){
                 $sucursal->id_telegram = $request->idtelegram;
@@ -329,7 +334,9 @@ class SucursalController extends Controller
                 $sucursal->lat = $request->lat;
                 $sucursal->lon = $request->long;
                 $sucursal->telefono = $request->telefono;
+                $sucursal->mayoreo = $request->mayorista;
                 $sucursal->whatsapp= $request->whatsapp;
+                $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
                 $sucursal->save();
                 return redirect('home')->with('info','Datos actualidos actualizada');
 
@@ -360,7 +367,9 @@ class SucursalController extends Controller
                 $sucursal->lat = $request->lat;
                 $sucursal->lon = $request->long;
                 $sucursal->telefono = $request->telefono;
+                $sucursal->mayoreo = $request->mayorista;
                 $sucursal->whatsapp= $request->whatsapp;
+                $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
                 $sucursal->save();
                 return redirect('home')->with('info','Datos actualidos actualizada');
 
@@ -383,7 +392,9 @@ class SucursalController extends Controller
             $sucursal->lat = $request->lat;
             $sucursal->lon = $request->long;
             $sucursal->telefono = $request->telefono;
+            $sucursal->mayoreo = $request->mayorista;
             $sucursal->whatsapp= $request->whatsapp;
+            $sucursal->whatstapp_mayoreo =$request->whatstapp_mayoreo;
             $sucursal->save();
             return redirect('home')->with('info','Datos actualidos actualizada');
         }

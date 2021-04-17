@@ -15,6 +15,7 @@ class AddColumnUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('mayoreo')->nullable();
+            $table->string('whatstapp_mayoreo')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddColumnUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('mayoreo');
+            $table->dropColumn('whatstapp_mayoreo');
         });
     }
 }

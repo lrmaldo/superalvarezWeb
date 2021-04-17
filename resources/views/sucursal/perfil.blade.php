@@ -174,6 +174,34 @@
                 placeholder="Como se llama la sucursal"  >
         </div>
     </div>
+      {{-- mayorista --}}
+      <div class="form-group">
+            
+        <label for='mayorista'class="col-md-8 control-label">¿Esta sucursal tiene ventas por mayoreo?:</label>
+    
+ 
+        <div class="col-md-8">
+            
+            <select class="form-control " id="mayorista" name="mayorista">
+              <option value="1" {{Auth::user()->mayoreo==1 ? 'selected': null}}>Si</option>
+              <option value="0" {{Auth::user()->mayoreo==0 ? 'selected': null}} >No</option>
+            </select>
+        </div>
+      
+
+    
+  </div>
+    {{-- whatapp sucursal --}}
+    <div class="form-group">
+      <div class="input-group-prepend">
+          <label class="col-md-4 control-label">Whatsapp <strong>sí la sucursal es mayorista</strong>:</label>
+      </div>
+      <div class="col-md-8">
+          <input type="number"  min="0"  id="whatsapp" class="form-control" name="whatstapp_mayoreo" value="{{Auth::user()->whatstapp_mayoreo}}"
+              placeholder="" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
+              <small>solo llenar este campo sí se la sucursal tiene ventas por mayoreo, y este whatsapp sera cuando el cliente sea nuevo, es decir, va a comprar como  <strong>mayorista</strong> por primera vez </small>
+      </div>
+  </div>
     {{-- direccion --}}
     <div class="form-group">
         <div class="input-group-prepend">

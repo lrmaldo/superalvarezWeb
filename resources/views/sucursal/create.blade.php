@@ -136,7 +136,17 @@
                     placeholder="número telefonico, puedes dejar vacio este campo" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
             </div>
         </div>
-
+        {{-- whatstapp_mayoreo --}}
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <label class="col-md-4 control-label">Whatsapp <strong>sí la sucursal es mayorista</strong>:</label>
+            </div>
+            <div class="col-md-8">
+                <input type="number"  min="0"  id="whatsapp" class="form-control" name="whatstapp_mayoreo" value=""
+                    placeholder="" pattern=" 0+\.[0-9]*[1-9][0-9]*$"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
+                    <small>solo llenar este campo sí se activa la sucursal como mayorista, y este whatsapp sera cuando el cliente sea nuevo, es decir, va a comprar como  <strong>mayorista</strong> por primera vez </small>
+            </div>
+        </div>
         {{-- descripcion --}}
         <div class="form-group">
             <div class="input-group-prepend">
@@ -205,7 +215,7 @@
                         lat: 17.8282252,
                         lng: -95.8210509
                     },
-                    icon:"../img/logo_fondo.png",
+                    //icon:"../img/logo_fondo.png",
 
                     draggable: true
                 });
