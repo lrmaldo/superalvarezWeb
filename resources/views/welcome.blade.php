@@ -92,7 +92,7 @@
 						<div class="buttons flex-row d-flex">
 							<i class="fa fa-apple" aria-hidden="true"></i>
 							<div class="desc" style="align-text:'center';">
-								<a href="#">
+								<a href="https://apps.apple.com/app/id1543770441">
 									<p>
 										<span>Disponible</span> <br>
 										en App Store
@@ -103,7 +103,7 @@
 						<div class="buttons dark flex-row d-flex">
 							<i class="fa fa-android" aria-hidden="true"></i>
 							<div class="desc">
-								<a href="#">
+								<a href="https://play.google.com/store/apps/details?id=com.superalvarez">
 									<p>
 										<span>Disponible</span> <br>
 										en Play Store

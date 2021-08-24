@@ -49,7 +49,9 @@ Route::resource('telegram','TelegramController');
 /* clientes app */
 Route::resource('clientes','ClientesController');
 
-
+Route::get('documentacion',function (){
+return view('documentacion');
+})->name('documentacion');
 
 Route::get('pedidospdf/{id}','PedidosController@generate_pdf');
 
