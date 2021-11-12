@@ -144,7 +144,9 @@ class ApiController extends Controller
 
     public function productos_sucursal($id)
     {
-        $productos = producto::where('id_sucursal', $id)->get();
+        $productos = producto::where('id_sucursal', $id)
+        ->where('activo', 1)
+        ->get();
 
         return $productos;
     }

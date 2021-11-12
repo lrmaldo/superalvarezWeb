@@ -101,6 +101,7 @@ class CategoriasController extends Controller
 
             /* checar si existe una ruta de imagen en la bd */
             $checar_img =str_replace($request->root(),'',$categoria->url_imagen); 
+           # strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? $checar_img = str_replace('/','\\',$checar_img) : $checar_img = str_replace('\\','/',$checar_img);
             if(file_exists(".".$checar_img)){
                 /* proseguir en eliminarlo  */
                 unlink(".".$checar_img);
