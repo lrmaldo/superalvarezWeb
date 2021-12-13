@@ -206,7 +206,7 @@ class ApiController extends Controller
         //file_get_contents($request_url);
 
 
-        $response = file_get_contents("https://api.telegram.org/$apiToken/sendMessage?" . http_build_query($data) );
+        $response = file_get_contents("https://api.telegram.org/$apiToken/sendMessage?" . json_encode($data) );
 
         /* enviar a telegram */
         try {
