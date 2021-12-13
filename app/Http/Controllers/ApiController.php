@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\bannerprincipal;
 use App\bannerSucursal;
 use App\categoria;
+use App\Notifications\TelegramNotificacion;
 use App\pedidos;
 use App\producto;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Notification;
 use PhpParser\Node\Stmt\TryCatch;
 
 class ApiController extends Controller
@@ -206,7 +208,8 @@ class ApiController extends Controller
         //file_get_contents($request_url);
 
 
-        $response = file_get_contents("https://api.telegram.org/$apiToken/sendMessage?" . json_encode($data) );
+        #$response = file_get_contents("https://api.telegram.org/$apiToken/sendMessage?" . json_encode($data) );
+        Notification::route('telegram', $id_telegram)->notify(new TelegramNotificacion($texto));
 
         /* enviar a telegram */
         try {
